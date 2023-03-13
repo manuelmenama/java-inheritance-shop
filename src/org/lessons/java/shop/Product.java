@@ -13,6 +13,8 @@ public class Product {
     private BigDecimal price;
     private BigDecimal vat;
 
+    private final static BigDecimal premiumDiscount = BigDecimal.valueOf(0.02);
+
 
 
     //COSTRUTTORI
@@ -85,6 +87,15 @@ public class Product {
 
     public String getExtendedName() {
         return getFormattedCode() + "-" + name;
+    }
+
+    public BigDecimal discountedPrice() {
+        BigDecimal discountValue = price.multiply(baseDiscount());
+        return price.subtract(discountValue).setScale(2, RoundingMode.HALF_EVEN);
+    }
+
+    public BigDecimal baseDiscount() {
+        return BigDecimal.valueOf(0.02);
     }
 
     @Override

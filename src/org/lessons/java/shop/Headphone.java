@@ -1,6 +1,7 @@
 package org.lessons.java.shop;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Headphone extends Product{
     //ATTRIBUTI
@@ -35,8 +36,18 @@ public class Headphone extends Product{
 
     //METODI
     @Override
+    public BigDecimal discountedPrice() {
+        if (!isWireless){
+            BigDecimal discountValue = getPrice().multiply(BigDecimal.valueOf(0.07));
+            return getPrice().subtract(discountValue).setScale(2, RoundingMode.HALF_EVEN);
+        } else {
+            return super.discountedPrice();
+        }
+    }
+    @Override
     public String toString() {
         return "Name: " + getName() + "; Price+vat: " + priceWithVat() +
+                "; Prezzo scontato: " + discountedPrice() +
                 "; color: " + color + "; senza filo: " + isWireless;
     }
 }

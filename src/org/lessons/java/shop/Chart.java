@@ -11,6 +11,7 @@ public class Chart {
         int dimension;
         String category;
         boolean isEnded = false;
+        boolean isPremium = false;
 
         System.out.println("Benvenuto nel tuo shop di fiducia.");
 
@@ -23,7 +24,7 @@ public class Chart {
 
         for (int i = 0; i < products.length && !isEnded; i++) {
             System.out.println("Che tipologia di prodotto intendi acquistare?");
-            System.out.print("Digita: s - per smartphone; t - per televisori; c - per cuffie; e - per uscire");
+            System.out.print("Digita: s - per smartphone; t - per televisori; c - per cuffie; e - per uscire -> ");
             category = scan.nextLine();
 
             switch (category) {
@@ -80,15 +81,15 @@ public class Chart {
                     boolean isWireless;
                     System.out.print("Nome prodotto: ");
                     nomeCuffia = scan.nextLine();
-                    System.out.print("Nome prodotto: ");
+                    System.out.print("Descrizione prodotto: ");
                     descrizioneCuffia = scan.nextLine();
-                    System.out.print("Nome prodotto: ");
+                    System.out.print("Prezzo: ");
                     prezzoCuffia = BigDecimal.valueOf(Double.parseDouble(scan.nextLine()));
-                    System.out.print("Nome prodotto: ");
+                    System.out.print("IVA: ");
                     ivaCuffia = BigDecimal.valueOf(Double.parseDouble(scan.nextLine()));
-                    System.out.print("Nome prodotto: ");
+                    System.out.print("Colore: ");
                     color = scan.nextLine();
-                    System.out.print("Nome prodotto: ");
+                    System.out.print("è senza fili (true o false): ");
                     isWireless = Boolean.getBoolean(scan.nextLine());
                     products[i] = new Headphone(nomeCuffia, descrizioneCuffia, prezzoCuffia, ivaCuffia, color, isWireless);
                     //caso cuffie
@@ -107,6 +108,23 @@ public class Chart {
 
         for (int i = 0; i < products.length; i++) {
             System.out.println(products[i].toString());
+        }
+
+        System.out.print("Possiedi una carta fedeltà? (s - per si, n - per no) -> ");
+        String response = scan.nextLine();
+
+        BigDecimal amount = BigDecimal.valueOf(0.0);
+
+        if (response.equals("s")){
+            for (int i = 0; i < products.length; i++) {
+                amount = amount.add(products[i].discountedPrice());
+            }
+            System.out.println("Il tuo prezzo totale, scontato, è: " + amount);
+        } else if (response.equals("n")) {
+            for (int i = 0; i < products.length; i++) {
+                amount = amount.add(products[i].getPrice());
+            }
+            System.out.println("Il tuo prezzo totale è: " + amount);
         }
 
 
