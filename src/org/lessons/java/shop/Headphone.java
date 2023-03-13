@@ -34,4 +34,9 @@ public class Headphone extends Product{
     }
 
     //METODI
+    @Override
+    public String toString() {
+        return "Name: " + getName() + "; Price+vat: " + priceWithVat() +
+                "; color: " + color + "; senza filo: " + isWireless;
+    }
 }

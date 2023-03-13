@@ -34,4 +34,9 @@ public class Television extends Product {
     }
 
     //METODI
+    @Override
+    public String toString() {
+        return "Name: " + getName() + "; Price+vat: " + priceWithVat() +
+                "; smart-tv: " + isSmart + "; pollici: " + inches;
+    }
 }

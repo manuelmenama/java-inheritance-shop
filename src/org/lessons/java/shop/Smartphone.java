@@ -38,6 +38,6 @@ public class Smartphone extends Product {
     @Override
     public String toString() {
         return "Name: " + getName() + "; Price+vat: " + priceWithVat() +
-                "; ";
+                "; imei: " + imei + "; memory: " + memory;
     }
 }
