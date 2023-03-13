@@ -4,11 +4,10 @@ import java.math.BigDecimal;
 
 public class Chart {
     public static void main(String[] args) {
-        /*Product product1 = new Product();
 
-        System.out.println(product1.toString());*/
+        Smartphone smartphone = new Smartphone("telefonetto", "non hai ancora il telefonetto?", new BigDecimal(200.30), new BigDecimal(0.22), 13344411, 256);
 
-        Product product2 = new Product("samsung a52s", "Buono telefono, compra!", new BigDecimal(299.99), new BigDecimal(0.22));
-        System.out.println(product2.toString());
+        System.out.println(smartphone.toString());
+
     }
 }
