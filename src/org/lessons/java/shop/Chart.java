@@ -108,6 +108,7 @@ public class Chart {
 
         for (int i = 0; i < products.length; i++) {
             System.out.println(products[i].toString());
+            System.out.println(products[i].getClass().getSimpleName());
         }
 
         System.out.print("Possiedi una carta fedeltà? (s - per si, n - per no) -> ");
@@ -122,7 +123,7 @@ public class Chart {
             System.out.println("Il tuo prezzo totale, scontato, è: " + amount);
         } else if (response.equals("n")) {
             for (int i = 0; i < products.length; i++) {
-                amount = amount.add(products[i].getPrice());
+                amount = amount.add(products[i].priceWithVat());
             }
             System.out.println("Il tuo prezzo totale è: " + amount);
         }
