@@ -68,8 +68,8 @@ public class Chart {
                     ivaTv = BigDecimal.valueOf(Double.parseDouble(scan.nextLine()));
                     System.out.print("Numero pollici: ");
                     pollici = Integer.parseInt(scan.nextLine());
-                    System.out.print("è smart (true o false): ");
-                    isSmart = Boolean.getBoolean(scan.nextLine());
+                    System.out.print("è smart (s o n): ");
+                    isSmart = scan.nextLine().equalsIgnoreCase("s");
                     products[i] = new Television(nomeTv, descrizioneTv, prezzoTv, ivaTv, pollici, isSmart);
                     break;
                 case "c":
@@ -89,8 +89,8 @@ public class Chart {
                     ivaCuffia = BigDecimal.valueOf(Double.parseDouble(scan.nextLine()));
                     System.out.print("Colore: ");
                     color = scan.nextLine();
-                    System.out.print("è senza fili (true o false): ");
-                    isWireless = Boolean.getBoolean(scan.nextLine());
+                    System.out.print("è senza fili (s o n): ");
+                    isWireless = scan.nextLine().equalsIgnoreCase("s");
                     products[i] = new Headphone(nomeCuffia, descrizioneCuffia, prezzoCuffia, ivaCuffia, color, isWireless);
                     //caso cuffie
                     break;
