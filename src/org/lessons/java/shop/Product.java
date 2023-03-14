@@ -90,8 +90,8 @@ public class Product {
     }
 
     public BigDecimal discountedPrice() {
-        BigDecimal discountValue = price.multiply(baseDiscount());
-        return price.subtract(discountValue).setScale(2, RoundingMode.HALF_EVEN);
+        BigDecimal discountValue = priceWithVat().multiply(baseDiscount());
+        return priceWithVat().subtract(discountValue).setScale(2, RoundingMode.HALF_EVEN);
     }
 
     public BigDecimal baseDiscount() {

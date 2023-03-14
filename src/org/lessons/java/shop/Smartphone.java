@@ -40,8 +40,8 @@ public class Smartphone extends Product {
     @Override
     public BigDecimal discountedPrice() {
         if (memory < 32){
-            BigDecimal discountValue = getPrice().multiply(BigDecimal.valueOf(0.05));
-            return getPrice().subtract(discountValue).setScale(2, RoundingMode.HALF_EVEN);
+            BigDecimal discountValue = priceWithVat().multiply(BigDecimal.valueOf(0.05));
+            return priceWithVat().subtract(discountValue).setScale(2, RoundingMode.HALF_EVEN);
         } else {
             return super.discountedPrice();
         }
